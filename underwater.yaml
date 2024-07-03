@@ -1,0 +1,6 @@
+train: dataset/images/train/
+val: dataset/images/valid/
+test: dataset/images/test/
+
+nc: 7
+names: ["fish", "jellyfish", "penguin", "puffin", "shark", "starfish", "stingray"]
