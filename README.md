@@ -36,3 +36,7 @@ Use trained models for inference on new images or video streams.
 
 ## Contributions
 Contributions and improvements are welcome. Please fork the repository and submit pull requests for review.
+
+## Acknowledgements
+
+I would like to sincerely thank Dr. Shitala Prasad for his expert guidance and unwavering support throughout the "Underwater Object Detection" project. His deep knowledge and innovative ideas greatly enriched this work, and his mentorship has been pivotal in bringing this project to fruition.
