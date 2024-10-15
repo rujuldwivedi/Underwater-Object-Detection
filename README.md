@@ -1,7 +1,7 @@
-# Underwater Object Detection
+# HydroVision
 
 ## Overview
-This repository explores the task of detecting underwater objects using deep learning models. It includes implementations using various approaches and pretrained models, focusing on fish detection and plastic mugs detection among other classes.
+Welcome to **HydorVision**! This repository explores the task of detecting underwater objects using deep learning models. It includes implementations using various approaches and pretrained models, focusing on fish detection and plastic mugs detection among other classes.
 
 ## Datasets
 Two main datasets were used for training and evaluation:
