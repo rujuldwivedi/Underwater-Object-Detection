@@ -66,13 +66,12 @@ Three models are implemented in this project:
 
 ## Results
 
-<div style="display: flex; flex-wrap: wrap; justify-content: space-around;">
-    <img src="images/output.png" alt="Output 1" style="width: 45%; margin: 5px;">
-    <img src="images/output2.png" alt="Output 2" style="width: 45%; margin: 5px;">
-    <img src="images/output3.png" alt="Output 3" style="width: 45%; margin: 5px;">
-    <img src="images/output4.png" alt="Output 4" style="width: 45%; margin: 5px;">
+<div style="display: flex; justify-content: space-around;">
+    <img src="images/output.png" alt="Output 1" style="width: 20%; margin: 5px;">
+    <img src="images/output2.png" alt="Output 2" style="width: 20%; margin: 5px;">
+    <img src="images/output3.png" alt="Output 3" style="width: 20%; margin: 5px;">
+    <img src="images/output4.png" alt="Output 4" style="width: 20%; margin: 5px;">
 </div>
-
 
 ## Acknowledgements
 
