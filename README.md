@@ -1,42 +1,115 @@
 # HydroVision
 
-## Overview
-Welcome to **HydorVision**! This repository explores the task of detecting underwater objects using deep learning models. It includes implementations using various approaches and pretrained models, focusing on fish detection and plastic mugs detection among other classes.
+Welcome to HydroVision! This is an underwater object detection project designed to detect various objects in underwater imagery. It leverages lightweight deep learning models that mimic the algorithms of YOLO (You Only Look Once) and Vision Transformer (ViT) architectures, with a focus on achieving decent accuracy using computationally efficient approaches. The project compares three models: a lightweight ViT mimic, a lightweight YOLO mimic, and a combined architecture integrating both approaches.
 
-## Datasets
-Two main datasets were used for training and evaluation:
-- Dataset 1: [Kaggle Dataset Name 1](https://www.kaggle.com/datasets/slavkoprytula/aquarium-data-cots)
-- Dataset 2: [Kaggle Dataset Name 2](https://www.kaggle.com/datasets/crowww/a-large-scale-fish-dataset)
+## Table of Contents
+- [Introduction](#introduction)
+- [Dataset](#dataset)
+- [Model Architectures](#model-architectures)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Results](#results)
+- [Acknowledgements](#acknowledgements)
 
-## Models Used
-### Transfer Learning Models:
-1. **MobileNetV2**:
-   - Details: Pretrained on ImageNet, fine-tuned for underwater object detection.
-   
-2. **YOLOv5**:
-   - Details: Implemented using YOLOv5 repository with modifications for underwater classes.
-   - Cloned Repo: [YOLOv5 Repository](https://github.com/ultralytics/yolov5)
+## Introduction
 
-### Basic Model:
-- A simple baseline model was also implemented to compare transfer learning performance.
+HydroVision aims to provide a computationally efficient approach for underwater object detection. The project focuses on lightweight model architectures that strike a balance between accuracy and efficiency, enabling the detection of objects such as fish, wrecks, aquatic plants, human divers, robots, and the sea floor with minimal computational resources.
+
+## Dataset
+
+The dataset used for this project is USIS10K, which consists of underwater images categorized into multiple classes as:
+
+```
+class_names = ["wrecks/ruins", "fish", "reefs", "aquatic plants", "human divers", "robots", "sea-floor"].
+```
+
+The dataset is structured as follows:
+
+```
+data
+  ├── USIS10K
+  │   ├── multi_class_annotations
+  │   │   ├── multi_class_train_annotations.json
+  │   │   ├── multi_class_val_annotations.json
+  │   │   ├── multi_class_test_annotations.json
+  │   ├── train
+  │   │   ├── train_00001.jpg
+  │   │   ├── ...
+  │   ├── train_labels
+  │   │   ├── train_00001.txt
+  │   │   ├── ...
+  │   ├── val
+  │   │   ├── val_00001.jpg
+  │   │   ├── ...
+  │   ├── val_labels
+  │   │   ├── val_00001.txt
+  │   │   ├── ...
+  │   ├── test
+  │   │   ├── test_00001.jpg
+  │   │   ├── ...
+  │   ├── test_labels
+  │   │   ├── test_00001.txt
+  │   │   ├── ...
+```
+The annotations are parsed into text files, with each line representing an object in the image in the format:
+```
+<class_id> <x_center> <y_center> <width> <height>
+```
+
+## Model Architectures
+
+Three models are implemented in this project:
+
+1. **Lightweight ViT Mimic**: A simplified Vision Transformer model with fewer transformer blocks and attention heads.
+2. **Lightweight YOLO Mimic**: A basic convolutional model inspired by YOLO, with downsampling and prediction heads for bounding boxes and class labels.
+3. **Integrated Model (LightViT-YOLO)**: Combines the outputs of the ViT and YOLO mimics for improved performance.
+
+## Installation
+
+To set up this project, follow these steps:
+
+1. **Clone the repository:**
+   ``` 
+   git clone https://github.com/rujuldwivedi/Underwater-Object-Detection.git
+   cd Underwater-Object-Detection
+   ```
+
+2. **Install the required packages:**
+   ``` 
+   pip install -r requirements.txt
+   ```
+
+3. **Organize the dataset as specified in the [Dataset](#dataset) section.**
 
 ## Usage
-### Training
-1. **MobileNetV2**: 
-python train_mobilenet.py --dataset path_to_dataset --epochs num_epochs
 
-2. **YOLOv5**: 
-python train_yolov5.py --data path_to_data.yaml --cfg path_to_config.yaml --epochs num_epochs
+1. **Training the models:**
+   - Train each model separately using the training script provided:
+     ``` 
+     python train_vit.py  # For Lightweight ViT
+     python train_yolo.py  # For Lightweight YOLO
+     python train_integrated.py  # For the Integrated Model
+     ```
 
-### Evaluation
-Run evaluation scripts to assess model performance on test datasets.
+2. **Evaluating the models:**
+   - Evaluate the models on the test set:
+     ``` 
+     python evaluate.py --model vit
+     python evaluate.py --model yolo
+     python evaluate.py --model integrated
+     ```
 
-### Inference
-Use trained models for inference on new images or video streams.
+3. **Inference on new images:**
+   - Run inference on a set of images:
+     ``` 
+     python infer.py --image_path <sample-image-path>.jpg --model integrated
+     ```
 
-## Contributions
-Contributions and improvements are welcome. Please fork the repository and submit pull requests for review.
+## Results
+
+The project compares the performance of the three models based on accuracy, inference time, and computational requirements. Detailed results can be added after completing the evaluations.
 
 ## Acknowledgements
 
-I would like to sincerely thank Dr. Shitala Prasad for his expert guidance and unwavering support throughout the "Underwater Object Detection" project. His deep knowledge and innovative ideas greatly enriched this work, and his mentorship has been pivotal in bringing this project to fruition.
+This project would not have been possible without the guidance and support of [**Dr. Shitala Prasad**](https://www.linkedin.com/in/shitalaprasad/), whose expertise and insights were invaluable throughout the development process.
+
