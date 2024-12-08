@@ -1,6 +1,6 @@
 # HydroVision
 
-![Project Banner](Files/banner.png)
+![Project Banner](images/banner.jpg)
 
 ## Table of Contents
 - [Overview](#overview)
